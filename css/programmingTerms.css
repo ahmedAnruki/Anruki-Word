@@ -1,0 +1,122 @@
+.terms {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  text-align: center;
+}
+
+.terms .title {
+  font-weight: bold;
+  font-size: 35px;
+  padding: 0px 10px;
+}
+
+.terms .title span {
+  color: var(--Primary--);
+  margin-left: 15px;
+}
+
+.terms .container {
+  padding: 0px 10px;
+}
+
+.terms-number {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--Primary--);
+  padding-bottom: 10px;
+}
+
+.terms .add-term-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 30px;
+  border: 5px solid var(--Secondary--);
+  border-radius: 15px;
+  width: fit-content;
+  margin: auto;
+}
+
+.terms .add-term-box input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: 2px solid var(--Primary--);
+  border-radius: 10px;
+  color: var(--Dark--);
+}
+
+.terms .add-term-box .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+.terms .add-term-box .buttons .add-button,
+.terms .add-term-box .buttons .delete-button {
+  padding: 5px 10px;
+  font-weight: 700;
+  color: var(--Light--);
+  background-color: var(--Primary--);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.terms .terms-box {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  column-gap: 30px;
+  padding: 5px;
+}
+
+.terms .terms-box .term {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px 3px;
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 3px solid var(--Secondary--);
+  gap: 20px;
+  opacity: .9;
+  transition: var(--transition--);
+}
+.terms .terms-box .term:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.terms .terms-box .term p {
+  font-size: 20px;
+  color: var(--Primary--);
+}
+
+.terms .terms-box .term .controls-spans {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.terms .terms-box .term .controls-spans .edit {
+  color: var(--Primary--);
+  cursor: pointer;
+}
+
+.terms .terms-box .term .controls-spans .del {
+  font-style: normal;
+  font-size: 14px;
+  background-color: var(--Danger--);
+  color: var(--Light--);
+  text-align: center;
+  padding: 2px 8px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -1,0 +1,339 @@
+.games {
+  width: 100%;
+  height: 100%;
+}
+
+.games .game-select {
+  padding-top: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.games .game-select .memory-game-select,
+.games .game-select .writing-game-select {
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 19px 38px,
+  rgba(0, 0, 0, 0.42) 0px 15px 12px;
+}
+
+.games .game-select .select-img {
+  max-width: 200px;
+}
+.games .game-select .select-img img {
+  width: 100%;
+}
+.games .game-select p {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--Primary--);
+  padding: 20px;
+}
+
+.games .game-select span {
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: var(--Primary--);
+  color: var(--Light--);
+  cursor: pointer;
+}
+
+/*start memory game*/
+.memory-game {
+  display: none;
+}
+
+.memory-game .container {
+  padding: 10px 15px;
+}
+
+.control-buttons {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: var(--Secondary--);
+  opacity: .6;
+}
+
+.control-buttons span {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  background-color: var(--Primary--);
+  color: var(--Light--);
+  padding: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.control-game {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close-game span {
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #f44336;
+  border-radius: 10px;
+  color: var(--Light--);
+}
+
+.run-again span {
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: var(--Primary--);
+  border-radius: 10px;
+  color: var(--Light--);
+}
+
+.memory-game .info-container {
+  max-width: 500px;
+  margin: 20px auto 0;
+  padding: 10px;
+  font-size: 20px;
+  overflow: hidden;
+  border: 2px solid var(--Primary--);
+}
+.memory-game .info-container .name {
+  float: left;
+  width: 50%;
+}
+.memory-game .info-container .tries {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.memory-game .memory-game-blocks {
+  display: grid;
+  max-width: 500px;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  margin: 20px auto;
+}
+
+.memory-game .memory-game-blocks .game-block {
+  height: 70px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  flex: 1 0 70px;
+  margin: 0 10px 20px;
+}
+
+.memory-game .memory-game-blocks .game-block .front {
+  background-color: var(--Dark--);
+  line-height: 70px;
+}
+
+.memory-game .memory-game-blocks .game-block .front::before {
+  content: "!";
+  color: var(--Light--);
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.memory-game .memory-game-blocks .game-block .back {
+  background-color: var(--Secondary--);
+  transform: rotateY(180deg);
+}
+
+.memory-game .memory-game-blocks .game-block .back img {
+  width: 50px;
+  margin-top: 5px;
+}
+
+.memory-game .memory-game-blocks .game-block .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+  border: 5px solid var(--Primary--);
+}
+
+.memory-game .memory-game-blocks .is-flipped,
+.memory-game .memory-game-blocks .has-match {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.memory-game .memory-game-blocks.no-clicking {
+  pointer-events: none;
+}
+/*end memory game*/
+
+/*start writing game*/
+
+.writing-game {
+  display: none;
+  max-width: 800px;
+  margin: auto;
+}
+
+.writing-game .name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--Primary--);
+  color: var(--Light--);
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .writing-game .name {
+    font-size: 20px;
+    padding: 5px;
+  }
+  .writing-game .name .close-game {
+    padding:10px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.writing-game .info-container .upcoming-words {
+  height: 100px;
+  overflow: hidden;
+}
+}
+.writing-game .name .run-again {
+  background-color: var(--Primary--);
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.writing-game .name .close-game {
+  background-color: var(--Danger--);
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.writing-game .info-container {
+  padding: 0px 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.writing-game .info-container .message {
+  padding: 5px 15px;
+  margin: 10px 0px 5px;
+  border-radius: 6px;
+  text-align: center;
+}
+.writing-game .info-container .message span {
+  font-weight: bold;
+  color: var(--Warning--);
+}
+.writing-game .info-container .message span::before {
+  content: "[ ";
+}
+
+.writing-game .info-container .message span::after {
+  content: " ]";
+}
+
+.writing-game .info-container .start {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: var(--Primary--);
+  color: var(--Light--);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.writing-game .info-container .the-word {
+  font-weight: bold;
+  font-size: 50px;
+  color: var(--Primary--);
+  text-align: center;
+  user-select: none;
+}
+
+.writing-game .info-container .input {
+  margin: 10px 0;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border: 3px solid var(--Warning--);
+  font-size: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 6px;
+  caret-color: var(--Primary--);
+}
+
+.writing-game .info-container .input:focus {
+  outline: none;
+}
+
+.writing-game .info-container .upcoming-words {
+  background-color: var(--Light--);
+  margin: 5px 0;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.writing-game .info-container .upcoming-words div {
+  background-color: var(--Primary--);
+  font-weight: bold;
+  color: var(--Light--);
+  padding: 5px;
+  margin: 4px;
+  border-radius: 6px;
+}
+.writing-game .info-container .control {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.writing-game .info-container .control span {
+  font-weight: bold;
+  color: var(--Primary--);
+}
+.writing-game .info-container .finish {
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  padding: 15px;
+}
+
+.writing-game .info-container .finish .good {
+  color: var(--Primary--);
+}
+
+.writing-game .info-container .finish .bad {
+  color: var(--Danger--);
+}
+
+/*end writing game*/

@@ -1,0 +1,348 @@
+:root {
+  --Success--: #0d6efd;
+  --Secondary--: #2d3236;
+  --Info--: #0dcaf0;
+  --Warning--: #ffc107;
+  --Dark--: #212529;
+  --Danger--: #dc3545;
+  --Light--: #f8f9fa;
+  --transition--: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: var(--Light--);
+  color: var(--Dark--);
+  transition: all var(--transition--);
+}
+
+ul {
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--Light--);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--Secondary--);
+  border: 2px solid var(--Primary--);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--Dark--);
+}
+
+.container {
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#home {
+  display: block;
+}
+
+#terms {
+  display: none;
+}
+
+#ideas {
+  display: none;
+}
+
+#games {
+  display: none;
+}
+
+#music {
+  display: none;
+}
+
+#settings{
+  display: none;
+}
+
+.scroller-ele {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 5px;
+  background-color: var(--Primary--);
+  z-index: 99999;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--Dark--);
+  transition: var(--transition--);
+  border-right: 2px solid var(--Primary--);
+  z-index: 9999;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px #000;
+}
+
+.nav-width {
+  width: 200px;
+}
+
+@media (min-width: 768px) {
+  nav {
+    width: fit-content;
+  }
+  nav .bars {
+    display: none;
+  }
+  .sections {
+    padding-left: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sections {
+    padding-left: 55px;
+  }
+}
+
+nav .bars {
+  font-size: 30px;
+  padding: 14px;
+
+  color: var(--Light--);
+  transition: var(--transition--);
+  cursor: pointer;
+}
+
+nav .bars:hover {
+  color: var(--Primary--);
+}
+
+nav ul {
+  width: 100%;
+  height: calc(100% - 100px);
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+nav ul li {
+  border-radius: 6px;
+  transition: var(--transition--);
+}
+
+nav ul li:hover {
+  background-color: var(--Secondary--);
+}
+
+nav ul .active {
+  background-color: var(--Secondary--);
+}
+
+nav ul .active a::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  background-color: var(--Danger--);
+}
+
+nav ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+  color: var(--Light--);
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+nav ul li i {
+  color: var(--Primary--);
+  font-size: 20px;
+}
+
+nav .weather {
+  position: relative;
+  padding: 14px;
+  font-size: 25px;
+  transition: var(--transition--);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+nav .weather:hover {
+  opacity: 1;
+}
+
+nav .weather i.fa-sun {
+  color: var(--Warning--);
+}
+nav .weather i.fa-moon {
+  color: var(--Light--);
+}
+
+#up-btn {
+  position: fixed;
+  display: none;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--Secondary--);
+  color: var(--Primary--);
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: var(--transition--);
+}
+
+.home {
+  padding-top: 50px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.home .waving {
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  background-color: var(--Primary--);
+  left: 50%;
+  top: 60%;
+  transition: var(--transition--);
+  transform: translateX(-50%) skew(0, -10deg);
+  border-radius: 50%;
+  z-index: -10000;
+  animation: waving 8s ease-in-out infinite alternate;
+}
+
+@keyframes waving {
+  from {
+    transform: translateX(-50%) skew(0, -10deg);
+  }
+  to {
+    transform: translateX(-20%) skew(10deg, 0);
+  }
+}
+
+/*.home::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 0, 0.792);
+  left: 15%;
+  top: 3%;
+  border-radius: 48%;
+  border-right: 2px solid var(--Light--);
+  box-shadow: 0 1px 50px 20px yellow;
+  z-index: -1;
+  animation: wavingg 20s ease-in-out infinite alternate;
+}
+
+@keyframes wavingg {
+  from {
+    left: 15%;
+    top: 3%;
+  }
+  to {
+    left: -6%;
+    top: 30%;
+    border-right: 1px solid transparent;
+  }
+}
+*/
+
+.home .title {
+  font-weight: bold;
+  font-size: 45px;
+  padding: 0px 10px 0px;
+}
+
+.home .title span {
+  color: var(--Primary--);
+}
+
+.home .content {
+  position: relative;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  .home .content {
+    margin-top: 10px;
+  }
+}
+
+.home .text-box {
+  text-align: center;
+  background-color: var(--Light--);
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 350px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.502);
+}
+
+.home .text-box .imgs-box p {
+  padding: 10px;
+  font-size: 20px;
+  color: var(--Dark--);
+  font-weight: bold;
+}
+
+.home .text-box .imgs-box img {
+  display: inline-block;
+  width: 60px;
+  margin: 10px;
+}
+
+.home .my-img-box {
+  max-width: 250px;
+
+}
+
+.home .my-img-box img {
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: var(--Primary--);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.502);
+}
+
+.home .my-img-box p {
+  padding: 10px;
+  text-decoration: double;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: inherit;
+}
