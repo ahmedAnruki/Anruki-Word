@@ -1,2 +1,0 @@
-# Anruki-Word
-Anruki Word
