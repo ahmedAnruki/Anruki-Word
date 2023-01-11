@@ -1,8 +1,13 @@
 const section = document.querySelectorAll("section");
 
 function display(parameter) {
-  section.forEach((section) => (section.style.display = "none"));
-  parameter.style.display = "block";
+  let show = document.querySelector(".show-navigation");
+  show.style.cssText = "display: flex;";
+  setTimeout(function () {
+    show.style.transform = "translateY(-100%)";
+    section.forEach((section) => (section.style.display = "none"));
+    parameter.style.display = "block";
+  }, 700);
 }
 
 const links = document.querySelectorAll("nav ul li");
